@@ -1,0 +1,7 @@
+div {
+  overflow: hidden;
+}
+ul li {
+  cursor: pointer;
+  transition: background 0.2s;
+}

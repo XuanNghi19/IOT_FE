@@ -1,0 +1,29 @@
+<div class="fixed h-screen z-20 flex flex-col justify-center">
+  <div
+    #menu
+    class="fixed h-screen transition-all duration-300"
+    [ngClass]="{ 'left-0': isOpen, 'left-[-312px]': !isOpen }"
+  >
+    <img class="h-full object-cover" src="menu.png" alt="" />
+
+    <!-- Danh sách menu -->
+    <div
+      class="absolute top-0 h-full z-20 flex items-center"
+    >
+      <ul class="gap-2 flex flex-col w-[313px] justify-center items-center text-white">
+        <li class="hover:bg-gray-400 flex items-center gap-6 w-full p-4 text-lg">
+          <img class="w-8" src="dasboard.png" alt="">
+          Dashboard</li>
+        <li class="hover:bg-gray-400 w-full flex items-center gap-6  p-4 text-lg">
+          <img class="w-8" src="history.png" alt="">
+          Lịch sử bật tắt</li>
+        <li class="hover:bg-gray-400 w-full flex items-center gap-6  p-4 text-lg">
+          <img class="w-8" src="data.png" alt="">
+          Dữ liệu cảm biến</li>
+        <li class="hover:bg-gray-400 w-full flex items-center gap-6  p-4 text-lg">
+          <img class="w-8" src="profile.png" alt="">
+          Profile</li>
+      </ul>
+    </div>
+  </div>
+</div>

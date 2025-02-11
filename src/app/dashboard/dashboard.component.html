@@ -1,0 +1,116 @@
+<app-menu></app-menu>
+<div class="flex flex-col justify-center h-screen p-6 bg-[#212D42] gap-6">
+  <!-- Hiển thị giá trị hiện tại -->
+  <div class="flex h-1/4 w-full gap-6 justify-center">
+    <div
+      class="bg-[#DCEAFF] shadow-lg rounded-xl p-6 flex flex-1 gap-12 items-center justify-center"
+    >
+      <div class="w-2/6 flex flex-col items-center gap-1">
+        <img class="w-1/2" src="temperature.png" alt="" />
+        <span class="text-lg font-medium text-gray-600">(Nhiệt độ)</span>
+      </div>
+      <p class="text-6xl font-bold text-red-500">{{ temperature }}°C</p>
+    </div>
+    <div
+      class="bg-[#DCEAFF] shadow-lg gap-12 rounded-xl p-6 flex flex-1 items-center justify-center"
+    >
+      <div class="w-2/6 flex flex-col items-center gap-1">
+        <img class="w-1/2" src="humidity.png" alt="Độ Ẩm" />
+        <p class="text-lg font-medium text-gray-600">(Độ ẩm)</p>
+      </div>
+      <p class="text-6xl font-bold text-blue-500">{{ humidity }}%</p>
+    </div>
+    <div
+      class="bg-[#DCEAFF] shadow-lg rounded-xl p-6 flex flex-1 gap-12 items-center justify-center"
+    >
+      <div class="w-2/6 flex flex-col items-center gap-1">
+        <img class="w-1/2" src="sun-256.png" alt="" />
+        <span class="text-lg font-medium text-gray-600">(Ánh sáng)</span>
+      </div>
+      <p class="text-6xl font-bold text-[#fabe0c]">{{ light }} lx</p>
+    </div>
+  </div>
+
+  <!-- Biểu đồ chính -->
+  <div class="flex-1 h-2/4 bg-[#DCEAFF] shadow-lg rounded-xl p-6">
+    <h2 class="text-xl font-bold text-gray-700 mb-4 text-center">
+      Biểu đồ theo dõi
+    </h2>
+    <div id="chart">
+      <apx-chart
+        [colors]="chartOptions.colors!"
+        [series]="chartOptions.series!"
+        [chart]="chartOptions.chart!"
+        [xaxis]="chartOptions.xaxis!"
+        [stroke]="chartOptions.stroke!"
+        [tooltip]="chartOptions.tooltip!"
+        [dataLabels]="chartOptions.dataLabels!"
+      ></apx-chart>
+    </div>
+  </div>
+  <!-- Cột phải: Điều khiển ON/OFF -->
+  <div class="w-full h-1/4 flex gap-6 justify-center">
+    <!-- Nhiệt độ -->
+    <div
+      class="flex flex-1 items-center justify-center gap-12 bg-[#DCEAFF] p-4 shadow-lg rounded-lg"
+    >
+      <div class="w-2/6 flex flex-col items-center gap-1">
+        <img class="w-1/2" src="fan.png" alt="" />
+        <span class="text-lg font-medium text-gray-600">(Điều hòa)</span>
+      </div>
+      <button
+        class="px-5 w-[70px] py-2 rounded-lg text-white transition duration-300"
+        [ngClass]="
+          toggleState.temperature
+            ? 'bg-green-500 hover:bg-green-600'
+            : 'bg-red-500 hover:bg-red-600'
+        "
+        (click)="toggle('temperature')"
+      >
+        {{ toggleState.temperature ? "ON" : "OFF" }}
+      </button>
+    </div>
+
+    <!-- Độ ẩm -->
+    <div
+      class="flex flex-1 items-center justify-center gap-12 bg-[#DCEAFF] p-4 shadow-lg rounded-lg"
+    >
+      <div class="w-2/6 flex flex-col items-center gap-1">
+        <img class="w-1/2" src="humidifier.png" alt="" />
+        <span class="text-lg font-medium text-gray-600">(Phun sương)</span>
+      </div>
+      <button
+        class="px-5 py-2 w-[70px] rounded-lg text-white transition duration-300"
+        [ngClass]="
+          toggleState.humidity
+            ? 'bg-green-500 hover:bg-green-600'
+            : 'bg-red-500 hover:bg-red-600'
+        "
+        (click)="toggle('humidity')"
+      >
+        {{ toggleState.humidity ? "ON" : "OFF" }}
+      </button>
+    </div>
+
+    <!-- Ánh sáng -->
+    <div
+      class="flex flex-1 items-center justify-center gap-12 bg-[#DCEAFF] p-4 shadow-lg rounded-lg"
+    >
+      <div class="w-2/6 flex flex-col items-center gap-1">
+        <img class="w-1/2" src="light-bulb.png" alt="" />
+        <span class="text-lg font-medium text-gray-600">(Bóng đèn)</span>
+      </div>
+      <button
+        class="px-5 py-2 w-[70px] rounded-lg text-white transition duration-300"
+        [ngClass]="
+          toggleState.light
+            ? 'bg-green-500 hover:bg-green-600'
+            : 'bg-red-500 hover:bg-red-600'
+        "
+        (click)="toggle('light')"
+      >
+        {{ toggleState.light ? "ON" : "OFF" }}
+      </button>
+    </div>
+  </div>
+</div>
