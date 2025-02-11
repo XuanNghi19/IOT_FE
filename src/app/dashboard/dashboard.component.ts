@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import {
   ChartComponent,
@@ -30,7 +30,6 @@ export type ChartOptions = {
     CommonModule,
     NgApexchartsModule,
     ChartComponent,
-    NgOptimizedImage,
     MenuComponent
 ],
   templateUrl: './dashboard.component.html',

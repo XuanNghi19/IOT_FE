@@ -1,0 +1,5 @@
+::ng-deep .p-datatable-thead > tr > th {
+  background-color: #00B2FF !important; /* Màu nền của tiêu đề */
+  color: white !important; /* Màu chữ của tiêu đề */
+}
+

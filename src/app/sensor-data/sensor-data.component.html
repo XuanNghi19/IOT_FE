@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<div class="h-screen bg-[#212D42] flex flex-col justify-center p-32">
+  <div class="bg-[#DCEAFF] h-full rounded-lg shadow-md p-6">
+    <p-table
+      [value]="sensorData"
+      [paginator]="true"
+      [rows]="10"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      class="shadow-md"
+    >
+      <!-- Tiêu đề bảng -->
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 30%">Thời Gian</th>
+          <th style="width: 20%">Nhiệt Độ (°C)</th>
+          <th style="width: 20%">Độ Ẩm (%)</th>
+          <th style="width: 30%">Ánh Sáng (lux)</th>
+        </tr>
+      </ng-template>
+
+      <!-- Nội dung bảng -->
+      <ng-template pTemplate="body" let-entry>
+        <tr>
+          <td>{{ entry.timestamp | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+          <td>{{ entry.temperature }} °C</td>
+          <td>{{ entry.humidity }} %</td>
+          <td>{{ entry.light }} lux</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

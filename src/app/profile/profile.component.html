@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<div class="h-screen bg-[#212D42] flex flex-col justify-center p-26">
+  <div
+    class="bg-[#111211] h-full p-6 rounded-lg shadow-md flex justify-between gap-12"
+  >
+    <img src="cv.jpg" alt="" class="object-cover w-1/3 rounded-lg" />
+    <div class="w-2/3 flex flex-col gap-[24px]">
+      <div class="flex items-center gap-6">
+        <h1 class="text-white text-2xl">Thông tin sinh viên</h1>
+        <h1 class="text-4xl text-purple-300">/</h1>
+        <a class="text-[#05cbfc] text-xl hover:text-purple-300 cursor-pointer"
+            href="https://github.com/XuanNghi19/IOT_FE.git"
+          >github link: https://github.com/XuanNghi19/IOT_FE.git </a>
+        <p-button severity="info" class="ml-auto">Đăng ký</p-button>
+      </div>
+      <div class="flex items-center gap-4">
+        <div
+          class="flex items-center flex-1 p-6 rounded-lg h-[70px] border-[1.75px] border-[#404040]"
+        >
+          <p class="text-gray-300 text-xl">Họ và tên: {{ profile.name }}</p>
+        </div>
+        <div
+          class="flex items-center flex-1 p-6 rounded-lg h-[70px] border-[1.75px] border-[#404040]"
+        >
+          <p class="text-gray-300 text-xl">Mã sinh viên: {{ profile.masv }}</p>
+        </div>
+      </div>
+
+      <!-- show pdf -->
+      <iframe
+        src="tmp.pdf"
+        class="mt-auto w-full h-[500px] border-[1.75px] border-[#404040] rounded-lg"
+      ></iframe>
+    </div>
+  </div>
+</div>
