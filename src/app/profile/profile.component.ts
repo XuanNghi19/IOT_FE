@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from "../menu/menu.component";
 import {ButtonModule } from 'primeng/button';
+import { Router } from '@angular/router';
 
 interface Profile {
   name: string;
@@ -20,4 +21,10 @@ export class ProfileComponent {
     masv: 'B21DCPT168',
     passs: '123456'
   };
+
+  constructor(private router: Router) {}
+
+  navRegister() {
+    this.router.navigate(['/register']);
+  }
 }
