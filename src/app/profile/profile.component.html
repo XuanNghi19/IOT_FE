@@ -1,13 +1,13 @@
 <app-menu></app-menu>
 <div class="h-screen bg-[#212D42] flex flex-col justify-center p-26">
   <div
-    class="bg-[#111211] h-full p-6 rounded-lg shadow-md flex justify-between gap-12"
+    class="bg-[#111211] h-full p-6 rounded-lg shadow-md flex justify-between gap-8"
   >
     <img src="cv.jpg" alt="" class="object-cover w-1/3 rounded-lg" />
     <div class="w-2/3 flex flex-col gap-[24px]">
       <div class="flex items-center gap-6">
-        <h1 class="text-white text-2xl">Thông tin sinh viên</h1>
-        <h1 class="text-4xl text-purple-300">/</h1>
+        <h1 class="text-white text-xl">Thông tin sinh viên</h1>
+        <h1 class="text-4xl text-purple-300">-</h1>
         <a
           class="text-[#05cbfc] text-xl hover:text-purple-300 cursor-pointer"
           href="https://github.com/XuanNghi19/IOT_FE.git"
@@ -29,7 +29,38 @@
           <p class="text-gray-300 text-xl">Mã sinh viên: {{ profile.masv }}</p>
         </div>
       </div>
-
+      <h1 class="text-white text-xl">DOCS</h1>
+      <div
+        class="flex items-center flex-1 gap-4 p-6 rounded-lg h-[70px] border-[1.75px] border-[#404040] text-[#05cbfc] text-2xl"
+      >
+        <a
+          class="hover:text-purple-300 cursor-pointer"
+          href="https://primeng.org/"
+          target="_blank"
+          >Primeng</a
+        >
+        <h1 class="text-4xl text-purple-300">/</h1>
+        <a
+          class="hover:text-purple-300 cursor-pointer"
+          href="https://angular.dev/overview"
+          target="_blank"
+          >Angular v19</a
+        >
+        <h1 class="text-4xl text-purple-300">/</h1>
+        <a
+          class="hover:text-purple-300 cursor-pointer"
+          href="https://tailwindcss.com/docs/installation/framework-guides/angular"
+          target="_blank"
+          >Tailwind</a
+        >
+        <h1 class="text-4xl text-purple-300">/</h1>
+        <a
+          class="hover:text-purple-300 cursor-pointer"
+          href="https://apexcharts.com/docs/angular-charts/"
+          target="_blank"
+          >Apexcharts</a
+        >
+      </div>
       <!-- show pdf -->
       <iframe
         src="tmp.pdf"

@@ -1,30 +1,54 @@
 <app-menu></app-menu>
-<div class="h-screen bg-[#212D42] flex flex-col justify-center p-32">
-  <div class="bg-[#DCEAFF] h-full rounded-lg shadow-md p-6">
+<div class="h-screen bg-[#212D42] flex flex-col justify-center p-26">
+  <div class="bg-[#DCEAFF] flex flex-col h-full rounded-lg shadow-md p-6 gap-4">
+    <!-- search-->
+    <div class="flex items-center gap-4">
+      <!-- fill -->
+      <p-inputNumber [(ngModel)]="searchValue" mode="decimal" [minFractionDigits]="2" [maxFractionDigits]="5"/>
+      <!-- dropdown -->
+      <div class="flex items-center gap-2">
+        <p-dropdown
+          [options]="sensorTypes"
+          [(ngModel)]="selectedSensorType"
+          optionLabel="name"
+          placeholder="Chọn loại Sensor"
+          [style]="{ width: '200px' }"
+          class="shadow-sm"
+        ></p-dropdown>
+      </div>
+
+      <!-- search btn-->
+      <p-button label="Tìm kiếm" icon="pi pi-search"></p-button>
+    </div>
+
+    <!-- table -->
     <p-table
       [value]="sensorData"
       [paginator]="true"
-      [rows]="10"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10]"
       [tableStyle]="{ 'min-width': '50rem' }"
       class="shadow-md"
     >
       <!-- Tiêu đề bảng -->
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 30%">Thời Gian</th>
-          <th style="width: 20%">Nhiệt Độ (°C)</th>
-          <th style="width: 20%">Độ Ẩm (%)</th>
-          <th style="width: 30%">Ánh Sáng (lux)</th>
+          <th style="width: 15%">Id</th>
+          <th pSortableColumn="temperature" style="width: 15%">Nhiệt Độ (°C) <p-sortIcon field="temperature"/></th>
+          <th pSortableColumn="humidity" style="width: 15%">Độ Ẩm (%) <p-sortIcon field="humidity"/></th>
+          <th pSortableColumn="light" style="width: 15%">Ánh Sáng (lux) <p-sortIcon field="light"/></th>
+          <th pSortableColumn="timestamp" style="width: 40%">Thời Gian <p-sortIcon field="timestamp"/></th>
         </tr>
       </ng-template>
 
       <!-- Nội dung bảng -->
       <ng-template pTemplate="body" let-entry>
         <tr>
-          <td>{{ entry.timestamp | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+          <td>{{ entry.id }}</td>
           <td>{{ entry.temperature }} °C</td>
           <td>{{ entry.humidity }} %</td>
           <td>{{ entry.light }} lux</td>
+          <td>{{ entry.timestamp | date : "dd/MM/yyyy HH:mm:ss" }}</td>
         </tr>
       </ng-template>
     </p-table>

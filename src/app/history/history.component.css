@@ -3,3 +3,11 @@
   color: white !important; /* Màu chữ của tiêu đề */
 }
 
+::ng-deep .p-calendar {
+  width: 250px !important; /* Chiều rộng của input */
+}
+
+::ng-deep .p-calendar .p-inputtext {
+  width: 250px !important; /* Chiều rộng của input */
+}
+

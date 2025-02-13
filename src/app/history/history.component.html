@@ -4,17 +4,11 @@
     <!-- Thanh tìm kiếm -->
     <div class="flex items-center gap-4 mb-4">
       <p-calendar
-        [(ngModel)]="startDate"
-        placeholder="Từ ngày"
-        dateFormat="dd/mm/yy HH:mm:ss"
+        [(ngModel)]="searchtDate"
+        placeholder="Tìm kiếm theo thời gian"
+        dateFormat="dd/mm/yy"
         [showTime]="true"
-        hourFormat="24"
-      ></p-calendar>
-      <p-calendar
-        [(ngModel)]="endDate"
-        placeholder="Đến ngày"
-        dateFormat="dd/mm/yy HH:mm:ss"
-        [showTime]="true"
+        [inputStyle]="{ 'width': '400px' }"
         hourFormat="24"
       ></p-calendar>
       <p-button label="Tìm kiếm" icon="pi pi-search"></p-button>
@@ -25,22 +19,25 @@
     <p-table
       [value]="history"
       [paginator]="true"
-      [rows]="10"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10]"
       [tableStyle]="{ 'min-width': '50rem' }"
       class="shadow-md rounded-lg"
     >
       <!-- Tiêu đề bảng -->
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 30%">Thiết Bị</th>
+          <th style="width: 20%">Id</th>
+          <th style="width: 20%">Thiết Bị</th>
           <th style="width: 20%">Trạng Thái</th>
-          <th style="width: 50%">Thời Gian</th>
+          <th style="width: 40%">Thời Gian</th>
         </tr>
       </ng-template>
 
       <!-- Nội dung bảng -->
       <ng-template pTemplate="body" let-entry>
         <tr>
+          <td>{{ entry.id }}</td>
           <td>{{ entry.device }}</td>
           <td
             [ngClass]="{
