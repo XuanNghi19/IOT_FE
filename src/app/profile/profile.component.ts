@@ -21,10 +21,4 @@ export class ProfileComponent {
     masv: 'B21DCPT168',
     passs: '123456'
   };
-
-  constructor(private router: Router) {}
-
-  navRegister() {
-    this.router.navigate(['/register']);
-  }
 }

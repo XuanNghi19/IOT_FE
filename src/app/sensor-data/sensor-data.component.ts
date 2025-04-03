@@ -34,9 +34,10 @@ export class SensorDataComponent {
   selectedSensorType: any = null;
 
   sensorTypes = [
+    { name: 'Tất cả', value: '' },
     { name: 'Nhiệt độ', value: 'temperature' },
     { name: 'Độ ẩm', value: 'humidity' },
-    { name: 'Ánh sáng', value: 'light' }
+    { name: 'Ánh sáng', value: 'light' } 
   ];
 
   sensorData: SensorData[] = [
